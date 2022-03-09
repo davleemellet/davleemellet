@@ -12,9 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['Home ', 'About us', 'Contact us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-const NavBar = () => {
+
+
+const NavBar = (props) => {
+  const {pages, settings} = props
 
 	const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -35,8 +36,10 @@ const NavBar = () => {
   };
 
 	return ( <>
-	  <AppBar position="static">
-      <Container maxWidth="lg">
+	  <AppBar
+     position="static"
+     sx={{backgroundColor:'rgba(0,0,0,0.7)', marginBottom:0.2}} >
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -44,8 +47,9 @@ const NavBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            Tithes and Offerings
           </Typography>
+          
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -58,6 +62,7 @@ const NavBar = () => {
             >
               <MenuIcon />
             </IconButton>
+            <Container>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -68,7 +73,7 @@ const NavBar = () => {
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'center',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -82,6 +87,7 @@ const NavBar = () => {
                 </MenuItem>
               ))}
             </Menu>
+            </Container>
           </Box>
           <Typography
             variant="h6"
@@ -89,7 +95,7 @@ const NavBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            Tithes and Offerings
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -137,7 +143,7 @@ const NavBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  
 	</> );
 }
  
