@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Image from '../Images/anna-earl-seLgmwSCnJg-unsplash.jpg'; // Import using relative path
 import Image2 from '../Images/milada-vigerova-iQWvVYMtv1k-unsplash.jpg';
 import Image3 from '../Images/sixteen-miles-out-bIwFwR2fSsA-unsplash.jpg';
+import Image4 from '../Images/HeaderBg.png';
 
 const makeStyles ={
 	heroImage:{
@@ -25,7 +26,8 @@ const makeStyles ={
 	},
 		paperContainer: {
 			backgroundImage : ` linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),url(${Image})`,
-			height:'70vh',
+			// backgroundImage : `url(${Image})`,
+			height:'50vh',
 			backgroundSize:'cover',
 			backgroundRepeat :'no-repeat',
 			backgroundPosition:'center',
