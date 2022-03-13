@@ -1,32 +1,15 @@
-import React, { Component } from 'react'
+import NavBar from '../components/NavBar'
+import SignUpForm from '../components/SignUpForm';
 
-export class SignUp extends Component {
-	constructor(props){
-		super(props);
-
-		this.state={
-				step: 1,
-				firstName: '',
-				lastName: '',
-				organization: '',
-				contactNumber: '',
-				emailAddress: '',
-				confirmEmail: '',
-				username: '',
-				password: '',
-				confirmPassword: ''
-			}
-	}
-	
-
-  render() {
-
-	const {firstName, lastName, organization, contactNumber, emailAddress, confirmEmail, username, password, confirmPassword} = this.state;
-	
-	return (
-	  <div>SignUp</div>
-	)
-  }
+const SignUp = () => {
+	return ( <>
+		<NavBar
+		pages = {['Home ', 'About us', 'Contact us']}
+		settings={['Login','Sign-Up']}
+		/>
+		<SignUpForm/>
+	</>
+	);
 }
-
-export default SignUp
+ 
+export default SignUp; 
