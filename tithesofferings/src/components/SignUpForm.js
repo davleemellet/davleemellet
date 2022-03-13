@@ -49,10 +49,16 @@ export class SignUpForm extends Component {
 	const formTitles={
 			'FormSignUpStep1':{
 				'mainTitle':'Sign Up',
-				'Subtitle':'Please enter your full name and organization'
+				'Subtitle':'Please enter your Personal Details.'
 			},
-			'FormSignUpStep2':'Please enter your contact number and email address',
-			'FormSignUpStep3':'Please enter your username and password'
+			'FormSignUpStep2':{
+				'mainTitle':'Sign Up',
+				'Subtitle':'Please enter your Contact Details.'
+			},
+			'FormSignUpStep3':{
+				'mainTitle':'Sign Up',
+				'Subtitle':'Please enter your Login Details.'
+			}
 		};
 
 	const formLabels={
@@ -62,7 +68,7 @@ export class SignUpForm extends Component {
 			'organization':'Organization'
 		},
 		'FormSignUpStep2':{
-			'contactNumber': 'Contact Number',
+			'contactNumber': 'Mobile Number',
 			'emailAddress': 'Email Address',
 			'confirmEmail': 'Confirm Email Address'
 		},
@@ -75,9 +81,14 @@ export class SignUpForm extends Component {
   
 	const formHelpers={
 		'FormSignUpStep1':{
-			'firstnameError':"Please enter your First Name",
-			'lastnameError':"Please enter your Last Name",
-			'organizationError':"Please enter your Organization Name"
+			'firstnameError':"Please enter your First Name.",
+			'lastnameError':"Please enter your Last Name.",
+			'organizationError':"Please enter your Organization Name."
+		},
+		'FormSignUpStep2':{
+			'contactNumberError': 'Please enter your Mobile Contact Number.',
+			'emailAddressError': 'Please enter your email address.',
+			'confirmEmailError': 'Please confirm your email address.'
 		}
 	}
 
@@ -96,7 +107,15 @@ export class SignUpForm extends Component {
 			)
 		case 2: 
 			return (
-				<FormSignUpStep2 />
+				<FormSignUpStep2 
+				title = {formTitles.FormSignUpStep2}
+				helpers = {formHelpers.FormSignUpStep2}
+				labels = {formLabels.FormSignUpStep2}
+				nextStep={this.nextStep}
+				prevStep = {this.prevStep}
+				handleChange = {this.handleChange}
+				values = {inputValues}
+				/>
 			)
 
 		case 3: 
