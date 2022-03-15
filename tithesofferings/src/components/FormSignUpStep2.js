@@ -114,10 +114,6 @@ export class FormSignUpStep2 extends Component {
 
 	return (
 		<form noValidate>
-			<Stepper 
-			 steps={['Personal Details','Contact Details','Login Details']}
-			 step ={1}/>
-
 		{/*
 				THIS IS THE MOBILE VIEW
 		*/}
@@ -132,6 +128,10 @@ export class FormSignUpStep2 extends Component {
 						{title.mainTitle}
 					</Typography>
 
+					<Container component='hr' sx={MobileStyles.hr}/>
+					<Stepper 
+					 steps={['Personal Details','Contact Details','Login Details']}
+			 			step ={1}/>
 					<Container component='hr' sx={MobileStyles.hr}/>
 
 					<Container component='div' maxWidth='md'>
@@ -148,6 +148,7 @@ export class FormSignUpStep2 extends Component {
 						onChange={handleChange('contactNumber')}
 						error={contactNumberError}
 						helperText={contactNumberHelper}
+						value={values.contactNumber}
 						fullWidth
 						required
 						/>
@@ -160,6 +161,7 @@ export class FormSignUpStep2 extends Component {
 						error={emailAddressError}
 						helperText={emailAddressHelper}
 						sx={{marginTop:3}}
+						value={values.emailAddress}
 						fullWidth
 						required
 						/>
@@ -172,6 +174,7 @@ export class FormSignUpStep2 extends Component {
 						error={confirmEmailError}
 						helperText={confirmEmailHelper}
 						sx={{marginTop:3}}
+						value={values.confirmEmail}
 						fullWidth
 						required
 						/>
@@ -200,8 +203,12 @@ export class FormSignUpStep2 extends Component {
 						{title.mainTitle}
 					</Typography>
 
-					<Container component='hr' sx={DesktopStyles.hr}/>
-			
+					<Container component='hr' sx={MobileStyles.hr}/>
+					<Stepper 
+					 steps={['Personal Details','Contact Details','Login Details']}
+			 			step ={1}/>
+					<Container component='hr' sx={MobileStyles.hr}/>
+
 					<Typography variant='h6' component='h2' align='center' mt={3} >
 							{title.Subtitle}
 					</Typography>
@@ -213,6 +220,7 @@ export class FormSignUpStep2 extends Component {
 						onChange={handleChange('contactNumber')}
 						error={contactNumberError}
 						helperText={contactNumberHelper}
+						value={values.contactNumber}
 						fullWidth
 						required
 						/>
@@ -221,6 +229,7 @@ export class FormSignUpStep2 extends Component {
 						onChange={handleChange('emailAddress')}
 						error={emailAddressError}
 						helperText={emailAddressHelper}
+						value={values.emailAddress}
 						fullWidth
 						required
 						/>
@@ -233,6 +242,7 @@ export class FormSignUpStep2 extends Component {
 						error={confirmEmailError}
 						helperText={confirmEmailHelper}
 						sx={{marginTop:3}}
+						value={values.confirmEmail}
 						fullWidth
 						required
 						/>

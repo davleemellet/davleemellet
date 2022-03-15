@@ -95,7 +95,7 @@ export class FormSignUpStep1 extends Component {
 			&& this.props.values.organization !== ''){
 			this.props.nextStep();
 		}
-		if(this.props.values.firstname == ''){
+		if(this.props.values.firstname === ''){
 			this.setState({firstnameError:true});
 			this.setState({firstnameHelper:`${this.props.helpers.firstnameError}`})
 		}
@@ -114,15 +114,11 @@ export class FormSignUpStep1 extends Component {
 		const {firstnameError, firstnameHelper, lastnameError, lastnameHelper ,organizationError, organizationHelper} = this.state;
 	return (
 		<form noValidate>
-
-
-		
-
-		{/*
+			{/*
 				THIS IS THE MOBILE VIEW
 		*/}
 
-			<Box maxWidth={'sm'} m={'0 auto'} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
+			<Box maxWidth={'md'} m={'0 auto'} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
 				<Paper elevation={0} sx={MobileStyles.paper}>
 					<Container color = 'error' align="center" component='div' sx={MobileStyles.mainContainer}>
 					<LockOpenIcon sx={MobileStyles.icon} color='error'mt={1}/>
@@ -131,9 +127,11 @@ export class FormSignUpStep1 extends Component {
 					<Typography variant='h3' component='h1' align='center' gutterBottom sx={MobileStyles.mainTitle}>
 						{title.mainTitle}
 					</Typography>
+
+					<Container component='hr' sx={MobileStyles.hr}/>
 					<Stepper 
-						steps={['Personal Details','Contact Details','Login Details']}
-						step ={this.step}/>
+					 steps={['Personal Details','Contact Details','Login Details']}
+			 			step ={0}/>
 					<Container component='hr' sx={MobileStyles.hr}/>
 
 					<Container component='div' maxWidth='md'>
@@ -150,6 +148,7 @@ export class FormSignUpStep1 extends Component {
 						onChange={handleChange('firstname')}
 						error={firstnameError}
 						helperText={firstnameHelper}
+						value ={values.firstname}
 						fullWidth
 						required
 						/>
@@ -162,6 +161,7 @@ export class FormSignUpStep1 extends Component {
 						error={lastnameError}
 						helperText={lastnameHelper}
 						sx={{marginTop:3}}
+						value= {values.lastname}
 						fullWidth
 						required
 						/>
@@ -174,6 +174,7 @@ export class FormSignUpStep1 extends Component {
 						error={organizationError}
 						helperText={organizationHelper}
 						sx={{marginTop:3}}
+						value={values.organization}
 						fullWidth
 						required
 						/>
@@ -191,9 +192,7 @@ export class FormSignUpStep1 extends Component {
 		{/*
 				THIS IS THE DESKTOP VIEW
 		*/}
-							<Stepper 
-							steps={['Personal Details','Contact Details','Login Details']}
-							step ={this.step}/>
+
 			<Box maxWidth={'sm'} m={'0 auto'} mt={'5%'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} >
 
 				<Paper elevation={8} sx={DesktopStyles.paper}>
@@ -206,7 +205,10 @@ export class FormSignUpStep1 extends Component {
 					</Typography>
 
 					<Container component='hr' sx={DesktopStyles.hr}/>
-			
+					<Stepper 
+					 steps={['Personal Details','Contact Details','Login Details']}
+			 			step ={0}/>
+					<Container component='hr' sx={DesktopStyles.hr}/>
 					<Typography variant='h6' component='h2' align='center' mt={3} >
 							{title.Subtitle}
 					</Typography>
@@ -218,6 +220,7 @@ export class FormSignUpStep1 extends Component {
 						onChange={handleChange('firstname')}
 						error={firstnameError}
 						helperText={firstnameHelper}
+						value={values.firstname}
 						fullWidth
 						required
 						/>
@@ -226,6 +229,7 @@ export class FormSignUpStep1 extends Component {
 						onChange={handleChange('lastname')}
 						error={lastnameError}
 						helperText={lastnameHelper}
+						values={values.lastname}
 						fullWidth
 						required
 						/>
@@ -238,6 +242,7 @@ export class FormSignUpStep1 extends Component {
 						error={organizationError}
 						helperText={organizationHelper}
 						sx={{marginTop:3}}
+						value={values.organization}
 						fullWidth
 						required
 						/>

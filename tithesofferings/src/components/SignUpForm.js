@@ -89,6 +89,12 @@ export class SignUpForm extends Component {
 			'contactNumberError': 'Please enter your Mobile Contact Number.',
 			'emailAddressError': 'Please enter your email address.',
 			'confirmEmailError': 'Please confirm your email address.'
+		},
+		'FormSignUpStep3':{
+			'usernameError': "Please enter your username",
+			'passwordError': 'Please enter your password',
+			'confirmPasswordError': "Please confirm your password"
+
 		}
 	}
 
@@ -120,7 +126,15 @@ export class SignUpForm extends Component {
 
 		case 3: 
 			return (
-				<FormSignUpStep3 />
+				<FormSignUpStep3 
+				title= {formTitles.FormSignUpStep3}
+				helpers = {formHelpers.FormSignUpStep3}
+				labels ={formLabels.FormSignUpStep3}
+				nextStep = {this.nextStep}
+				prevStep = {this.prevStep}
+				handleChange = {this.handleChange}
+				values = {inputValues}
+				/>
 			)
 	}
   }
