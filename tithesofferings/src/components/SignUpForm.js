@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import FormSignUpStep1 from './FormSignUpStep1'
-import FormSignUpStep2 from './FormSignUpStep2'
-import FormSignUpStep3 from './FormSignUpStep3'
+import FormSignUpStep1 from './FormSignUpStep1';
+import FormSignUpStep2 from './FormSignUpStep2';
+import FormSignUpStep3 from './FormSignUpStep3';
 
 export class SignUpForm extends Component {
 	constructor(props){
@@ -140,4 +141,10 @@ export class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm
+const mapStateToProps =(state)=>{
+	return{
+		
+	}
+}
+
+export default connect()(SignUpForm)
